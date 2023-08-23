@@ -25,9 +25,11 @@
                     <button class="btn btn-primary " id="Addclass">Add new student</button>
                 </div>
 
-                <table class="table bg-black text-white ">
-                    <thead>
-                        <tr>
+              <div class="table table-bordered">
+              <table class="table table-bordered " id="studentTable">
+                    <thead  class="bg-black text-white text-uppercase " >
+                        <tr class="" >
+
 
                             <th>Id</th>
                             <th>Name</th>
@@ -37,6 +39,7 @@
                         </tr>
                     </thead>
                 </table>
+              </div>
             </div>
             <!-- pop up model -->
             <div class="modal" tabindex="-1" id="StudentModal">
