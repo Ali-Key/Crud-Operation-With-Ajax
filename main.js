@@ -1,6 +1,13 @@
+
+
+loadData();
+
 $("#Addclass").click(function(){
     $("#StudentModal").modal("show");
 });
+
+
+
 
 $("#studentForm").submit(function (event) {
   event.preventDefault();
@@ -36,3 +43,51 @@ $("#studentForm").submit(function (event) {
     }
   });
 });
+
+function  loadData(){
+  let sendingData ={
+    "action" : "readAll"
+  }
+
+  $.ajax({
+    
+    method: "POST",
+    dataType: "JSON",
+    url: "api.php",
+    data: sendingData,
+    success: function (data) {
+
+      let status = data.status;
+      let response = data.data;
+
+
+
+      let html = "";
+      let tr ="";
+
+
+
+
+
+      if (status ){
+        response.forEach(element => {
+          // console.log(element);
+
+          tr += "<tr>"
+          for (let i in element){
+            tr += `<td>${element[i]}</td>`;
+          }
+        })
+
+         $("#studentTable ").append(tr);
+      }
+
+
+  },
+  error: function (data) {
+  }
+  })
+
+
+}
+
