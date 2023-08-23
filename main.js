@@ -1,13 +1,8 @@
-
-
 loadData();
 
-$("#Addclass").click(function(){
-    $("#StudentModal").modal("show");
+$("#Addclass").click(function () {
+  $("#StudentModal").modal("show");
 });
-
-
-
 
 $("#studentForm").submit(function (event) {
   event.preventDefault();
@@ -27,67 +22,57 @@ $("#studentForm").submit(function (event) {
     contentType: false, // Corrected the typo here
 
     success: function (data) {
-      
+      // let status = data.status;
+      let Status = data.status;
+      let response = data.data;
 
-        // let status = data.status;
-        let Status = data.status;
-        let response = data.data;
+      console.log(data);
 
-        console.log(data);
-
-        alert(response)
+      alert(response);
     },
 
     error: function (data) {
-        console.log(data);
-    }
+      console.log(data);
+    },
   });
 });
 
-function  loadData(){
-  let sendingData ={
-    "action" : "readAll"
-  }
+function loadData() {
+  let sendingData = {
+    action: "readAll",
+  };
 
   $.ajax({
-    
     method: "POST",
     dataType: "JSON",
     url: "api.php",
     data: sendingData,
     success: function (data) {
-
       let status = data.status;
       let response = data.data;
 
-
-
       let html = "";
-      let tr ="";
+      let tr = "";
 
-
-
-
-
-      if (status ){
-        response.forEach(element => {
+      if (status) {
+        response.forEach((element) => {
           // console.log(element);
 
-          tr += "<tr>"
-          for (let i in element){
+          tr += "<tr>";
+          for (let i in element) {
             tr += `<td>${element[i]}</td>`;
           }
-        })
+          tr += `<td>
+          <a class = "btn bg-primary p-2  " update_info=${element["id"]}>Update</a>
+         
+          <a class = "btn bg-danger p-2  text-white  " delete_info=${element["id"]}>Delete</a>
+          </td> `;
+          tr += "</tr>";
+        });
 
-         $("#studentTable ").append(tr);
+        $("#studentTable ").append(tr);
       }
-
-
-  },
-  error: function (data) {
-  }
-  })
-
-
+    },
+    error: function (data) {},
+  });
 }
-
