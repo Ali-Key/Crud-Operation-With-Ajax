@@ -9,8 +9,10 @@
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+    <!-- font awesome cdn  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
 </head>
 
 <body>
@@ -18,26 +20,21 @@
 
     <div class="container mt-4">
         <div class="row justify-content-center mt-1">
-            <div class="col-sm-6 mt-3">
+            <div class="col-lg-6  col-md-4 col-sm-12 mt-3">
                 <h1 class="text-center">Student Info</h1>
 
                 <div class="text-end p-2">
-                    <button class="btn btn-primary " id="Addclass">Add new student</button>
+                    <button class="btn btn-success " id="Addclass">Add new student</button>
                 </div>
 
               <div class="table table-bordered">
               <table class="table table-bordered " id="studentTable">
-                    <thead  class="bg-black text-white text-uppercase " >
-                        <tr class="" >
+                    <thead class="bg-black text-white text-uppercase ">
 
+                    </thead>   
+                               
 
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Class</th>
-                            <th>Action</th>
-
-                        </tr>
-                    </thead>
+                    
                 </table>
               </div>
             </div>
@@ -51,6 +48,16 @@
                         </div>
                         <div class="modal-body ">
                             <form id="studentForm">
+                            <div class="row">
+                       <div class="col-sm-12">
+                            <div class="alert alert-success d-none" role="alert">
+                                A simple success alert—check it out!
+                            </div>
+                            <div class="alert alert-danger d-none" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        </div>
+                    </div>
 
                                 <div class="from-group m-2 ">
                                     <!-- <label for="name">Id</label> -->
@@ -101,6 +108,8 @@
 
     <!-- JavaScript file -->
     <script src="main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/js/fontawesome.min.js"></script> 
 
     <!-- <-- Bootstrap JavaScript file  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
